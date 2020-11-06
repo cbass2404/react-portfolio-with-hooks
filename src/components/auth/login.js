@@ -7,13 +7,6 @@ const Login = (props) => {
   const [password, setPassword] = useState("");
   const [errorText, setErrorText] = useState("");
 
-  const handleChange = (e) => {
-    [e.target.name] == "email"
-      ? setEmail(e.target.value)
-      : setPassword(e.target.value);
-    setErrorText("");
-  };
-
   const handleSubmit = (e) => {
     axios
       .post(
@@ -55,10 +48,9 @@ const Login = (props) => {
 
           <input
             type="email"
-            name="email"
             placeholder="Your email"
             value={email}
-            onChange={handleChange}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </div>
 
@@ -67,10 +59,9 @@ const Login = (props) => {
 
           <input
             type="password"
-            name="password"
             placeholder="Your password"
             value={password}
-            onChange={handleChange}
+            onChange={(e) => setPassword(e.target.value)}
           />
         </div>
 
